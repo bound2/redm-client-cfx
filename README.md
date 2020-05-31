@@ -1,4 +1,4 @@
-# redm-natives
+# redm-client-cfx
 TypeScript RedM client cfx
 
 ### Usage
