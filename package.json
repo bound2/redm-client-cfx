@@ -1,5 +1,5 @@
 {
-    "name": "redm-client-fx",
+    "name": "redm-client-cfx",
     "version": "1.0.0",
     "description": "TypeScript RedM cfx",
     "main": "dist/index.js",
