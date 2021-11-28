@@ -65,6 +65,10 @@ declare function CancelEvent(): void;
  */
 declare function GetCurrentResourceName(): string;
 
+declare function SendNUIMessage(data: any): void;
+
+declare function RegisterNuiCallbackType(callbackType: string): void;
+
 /**
  * Use this to export functions so they can be called from other resources.
  * For example:
