@@ -65,7 +65,7 @@ declare function CancelEvent(): void;
  */
 declare function GetCurrentResourceName(): string;
 
-declare function SendNUIMessage(data: any): void;
+declare function SendNuiMessage(jsonString: string): boolean;
 
 declare function RegisterNuiCallbackType(callbackType: string): void;
 
