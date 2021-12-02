@@ -65,6 +65,8 @@ declare function CancelEvent(): void;
  */
 declare function GetCurrentResourceName(): string;
 
+declare function IsDuplicityVersion(): boolean;
+
 /**
  * Returns the NUI window handle for a specified DUI browser object.
  * @param duiObject The DUI browser handle.
@@ -79,7 +81,13 @@ declare function GetDuiHandle(duiObject: number): string;
  */
 declare function SendDuiMessage(duiObject: number, jsonString: string): void;
 
+declare function IsDuiAvailable(duiObject: number): boolean;
+
 declare function GetNuiCursorPosition(): [number, number];
+
+declare function IsNuiFocused(): boolean;
+
+declare function IsNuiFocusKeepingInput(): boolean;
 
 declare function SendLoadingScreenMessage(jsonString: string): boolean;
 
