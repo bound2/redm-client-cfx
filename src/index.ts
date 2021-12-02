@@ -65,9 +65,37 @@ declare function CancelEvent(): void;
  */
 declare function GetCurrentResourceName(): string;
 
+/**
+ * Returns the NUI window handle for a specified DUI browser object.
+ * @param duiObject The DUI browser handle.
+ * @return The NUI window handle, for use in e.g. CREATE_RUNTIME_TEXTURE_FROM_DUI_HANDLE.
+ */
+declare function GetDuiHandle(duiObject: number): string;
+
+/**
+ * Sends a message to the specific DUI root page. This is similar to SEND_NUI_MESSAGE.
+ * @param duiObject The DUI browser handle.
+ * @param jsonString The message, encoded as JSON.
+ */
+declare function SendDuiMessage(duiObject: number, jsonString: string): void;
+
+declare function GetNuiCursorPosition(): [number, number];
+
+declare function SendLoadingScreenMessage(jsonString: string): boolean;
+
 declare function SendNuiMessage(jsonString: string): boolean;
 
+declare function RegisterRawNuiCallback(callbackType: string, callback: Function): void;
+
 declare function RegisterNuiCallbackType(callbackType: string): void;
+
+declare function ShutdownLoadingScreenNui(): void;
+
+declare function SetManualShutdownLoadingScreenNui(manualShutdown: boolean): void;
+
+declare function SetNuiFocus(hasFocus: boolean, hasCursor: boolean): void;
+
+declare function SetNuiFocusKeepInput(keepInput: boolean): void;
 
 /**
  * Use this to export functions so they can be called from other resources.
