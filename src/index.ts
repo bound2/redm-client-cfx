@@ -43,6 +43,8 @@ declare function GetConvar(varName: string, default_: string): string;
 
 declare function GetConvarInt(varName: string, default_: number): number;
 
+declare function GetActivePlayers(): Array<number>;
+
 /**
  * Registered commands can be executed by entering them in the client console (this works for client side and server side registered commands). 
  * Or by entering them in the server console/through an RCON client (only works for server side registered commands). 
