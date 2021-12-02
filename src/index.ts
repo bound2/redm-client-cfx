@@ -95,6 +95,8 @@ declare function SendLoadingScreenMessage(jsonString: string): boolean;
 
 declare function SendNuiMessage(jsonString: string): boolean;
 
+declare function SendNUIMessage(data: any): void;
+
 declare function RegisterRawNuiCallback(callbackType: string, callback: Function): void;
 
 declare function RegisterNuiCallbackType(callbackType: string): void;
