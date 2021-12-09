@@ -1,3 +1,68 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+interface IntPtrInitialized {}
+interface FloatPtrInitialized {}
+interface IntPtr {}
+interface FloatPtr {}
+interface VectorPtr {}
+interface ReturnResultAnyway {}
+interface ResultAsInteger {}
+interface ResultAsFloat {}
+interface ResultAsString {}
+interface ResultAsVector {}
+interface ResultAsLong {}
+interface ResultAsObject {}
+
+type InputArgument =
+    | string
+    | number
+    | IntPtrInitialized
+    | FloatPtrInitialized
+    | IntPtr
+    | FloatPtr
+    | VectorPtr
+    | ReturnResultAnyway
+    | ResultAsInteger
+    | ResultAsFloat
+    | ResultAsString
+    | ResultAsVector
+    | ResultAsLong
+    | ResultAsObject;
+
+interface CitizenInterface {
+    trace(...args: string[]): void;
+    setTickFunction(callback: Function): void;
+    setEventFunction(callback: Function): void;
+
+    setCallRefFunction(callback: Function): void;
+    setDeleteRefFunction(callback: Function): void;
+    setDuplicateRefFunction(callback: Function): void;
+    canonicalizeRef(ref: number): string;
+    invokeFunctionReference(ref: string, args: Uint8Array): Uint8Array;
+
+    getTickCount(): number;
+    invokeNative<T = void>(hash: string, ...args: InputArgument[]): T;
+    startProfiling(name?: string): void;
+    stopProfiling(name?: string): {};
+
+    pointerValueIntInitialized(): IntPtrInitialized;
+    pointerValueFloatInitialized(): FloatPtrInitialized;
+    pointerValueInt(): IntPtr;
+    pointerValueFloat(): FloatPtr;
+    pointerValueVector(): VectorPtr;
+    returnResultAnyway(): ReturnResultAnyway;
+    resultAsInteger(): ResultAsInteger;
+    resultAsFloat(): ResultAsFloat;
+    resultAsString(): ResultAsString;
+    resultAsVector(): ResultAsVector;
+    resultAsLong(): ResultAsLong;
+    resultAsObject(): ResultAsObject;
+
+    makeRefFunction(refFunction: Function): string;
+}
+
+// eslint-disable-next-line no-var
+declare var Citizen: CitizenInterface;
+
 /**
  * Emit event to another client script locally
  * @param eventName - which event will be sent to the client script
@@ -46,8 +111,8 @@ declare function GetConvarInt(varName: string, default_: number): number;
 declare function GetActivePlayers(): Array<number>;
 
 /**
- * Registered commands can be executed by entering them in the client console (this works for client side and server side registered commands). 
- * Or by entering them in the server console/through an RCON client (only works for server side registered commands). 
+ * Registered commands can be executed by entering them in the client console (this works for client side and server side registered commands).
+ * Or by entering them in the server console/through an RCON client (only works for server side registered commands).
  * Or if you use a supported chat resource, like the default one provided in the cfx-server-data repository, then you can enter the command in chat by prefixing it with a /.
  * Commands registered using this function can also be executed by resources, using the ExecuteCommand native.
  * The restricted bool is not used on the client side. Permissions can only be checked on the server side, so if you want to limit your command with an ace permission automatically, make it a server command (by registering it in a server script).
